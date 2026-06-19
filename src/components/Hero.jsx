@@ -3,11 +3,11 @@ import resume from "../assets/resume.pdf";
 
 function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="min-h-screen flex items-center justify-center px-6 pt-24">
+     <div className="grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
 
         <div>
-          <h1 className="text-5xl md:text-7xl font-bold">
+         <h1 className="text-4xl md:text-7xl font-bold">
             GOHEL DARSHIT
           </h1>
 
@@ -20,7 +20,7 @@ function Hero() {
             React Developer
           </p>
 
-          <div className="flex gap-4 mt-8 flex-wrap">
+          <div className="flex justify-center mt-10 md:mt-0">
 
             <a
               href={resume}

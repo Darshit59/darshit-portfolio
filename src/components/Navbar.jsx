@@ -7,7 +7,7 @@ function Navbar() {
           DG
         </h1>
 
-        <div className="flex gap-6">
+       <div className="hidden md:flex gap-6">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
