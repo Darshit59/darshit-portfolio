@@ -9,6 +9,10 @@ import Achievements from "./components/Achievements";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import TrivNestGallery from "./components/TrivNestGallery";
+import TechStack from "./components/TechStack";
+import GitHubStats from "./components/GitHubStats";
+import ThemeToggle from "./ThemeToggle";
 
 function App() {
   return (
@@ -18,11 +22,15 @@ function App() {
       <About />
       <Education />
       <Skills />
+      <TechStack />
       <Experience />
       <Projects />
+      <TrivNestGallery />
       <Achievements />
       <Certificates />
+      <GitHubStats />
       <Contact />
+      <ThemeToggle />
       <Footer />
     </div>
   );

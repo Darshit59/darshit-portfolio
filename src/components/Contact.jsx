@@ -1,89 +1,81 @@
-function Contact() {
-  return (
-    <section
-      id="contact"
-      className="py-24 px-6 bg-slate-900"
-    >
-      <div className="max-w-6xl mx-auto">
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
-        <h2 className="text-5xl font-bold text-center mb-14">
+function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_b8g9s5f",
+        "template_yatefgf",
+        form.current,
+        "cKDZ89kT9oFuu3-cz"
+      )
+      .then(
+        () => {
+          alert("Message Sent Successfully 🚀");
+        },
+        (error) => {
+          alert("Failed: " + error.text);
+        }
+      );
+  };
+
+  return (
+    <section id="contact" className="py-24 px-6 bg-slate-900">
+      <div className="max-w-3xl mx-auto">
+
+        <h2 className="text-5xl font-bold text-center mb-12">
           Contact Me
         </h2>
 
-        <div className="bg-slate-800 border border-cyan-500/20 rounded-3xl p-10">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="bg-slate-800 p-8 rounded-3xl space-y-5"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="w-full p-4 rounded-xl bg-slate-700"
+          />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="w-full p-4 rounded-xl bg-slate-700"
+          />
 
-            {/* Phone */}
-            <div className="bg-slate-900 rounded-2xl p-6 text-center">
-              <h3 className="text-xl font-semibold mb-3">
-                📞 Phone
-              </h3>
+          <input
+            type="text"
+            name="title"
+            placeholder="Subject"
+            required
+            className="w-full p-4 rounded-xl bg-slate-700"
+          />
 
-              <p className="text-gray-300">
-                +91 9313796695
-              </p>
-            </div>
+          <textarea
+            name="message"
+            rows="6"
+            placeholder="Your Message"
+            required
+            className="w-full p-4 rounded-xl bg-slate-700"
+          ></textarea>
 
-            {/* Email */}
-            <div className="bg-slate-900 rounded-2xl p-6 text-center">
-              <h3 className="text-xl font-semibold mb-3">
-                📧 Email
-              </h3>
-
-              <p className="text-gray-300 break-all">
-                darshitgohel93@gmail.com
-              </p>
-            </div>
-
-            {/* LinkedIn */}
-            <div className="bg-slate-900 rounded-2xl p-6 text-center">
-              <h3 className="text-xl font-semibold mb-3">
-                🔗 LinkedIn
-              </h3>
-
-              <a
-                href="https://www.linkedin.com/in/darshit-gohel-9a170725a/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-cyan-400 hover:text-cyan-300"
-              >
-                Visit Profile
-              </a>
-            </div>
-
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10">
-
-            <a
-              href="mailto:darshitgohel93@gmail.com"
-              className="bg-cyan-500 hover:bg-cyan-600 px-8 py-3 rounded-xl font-semibold text-center transition"
-            >
-              Send Email
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/darshit-gohel-9a170725a/"
-              target="_blank"
-              rel="noreferrer"
-              className="border border-cyan-500 hover:bg-cyan-500/10 px-8 py-3 rounded-xl font-semibold text-center transition"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/Darshit59"
-              target="_blank"
-              rel="noreferrer"
-              className="border border-cyan-500 hover:bg-cyan-500/10 px-8 py-3 rounded-xl font-semibold text-center transition"
-            >
-              GitHub
-            </a>
-
-          </div>
-
-        </div>
+          <button
+            type="submit"
+            className="w-full bg-cyan-500 py-4 rounded-xl font-bold hover:bg-cyan-600"
+          >
+            Send Message
+          </button>
+        </form>
 
       </div>
     </section>

@@ -1,5 +1,6 @@
 import profile from "../assets/profile.jpg";
 import resume from "../assets/resume.pdf";
+import { motion } from "framer-motion";
 
 function Hero() {
   return (
@@ -7,8 +8,12 @@ function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center px-6 pt-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
     >
-      <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto"
+      >
         {/* Left Section */}
         <div className="text-center md:text-left">
 
@@ -57,7 +62,7 @@ function Hero() {
 
             <div className="bg-slate-800 border border-cyan-500/20 rounded-xl p-4 text-center">
               <h3 className="text-2xl font-bold text-cyan-400">
-                3+
+                5+
               </h3>
               <p className="text-sm text-gray-300">
                 Projects
@@ -75,7 +80,7 @@ function Hero() {
 
             <div className="bg-slate-800 border border-cyan-500/20 rounded-xl p-4 text-center">
               <h3 className="text-2xl font-bold text-cyan-400">
-                7+
+                10+
               </h3>
               <p className="text-sm text-gray-300">
                 Certificates
@@ -89,9 +94,17 @@ function Hero() {
         {/* Right Section */}
         <div className="flex justify-center">
 
-          <div className="relative">
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+            className="relative"
+          >
 
-            {/* Glow Effect */}
             <div className="absolute inset-0 bg-cyan-500 opacity-20 blur-3xl rounded-full"></div>
 
             <img
@@ -100,11 +113,11 @@ function Hero() {
               className="relative w-72 h-72 md:w-96 md:h-96 rounded-full object-cover border-4 border-cyan-500 shadow-2xl"
             />
 
-          </div>
+          </motion.div>
 
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -4,36 +4,59 @@ function Experience() {
       id="experience"
       className="py-24 px-6 bg-slate-900"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         <h2 className="text-5xl font-bold text-center mb-14">
           Experience
         </h2>
 
-        <div className="bg-slate-800 border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 transition-all duration-300">
+        <div className="relative border-l-4 border-cyan-500 ml-4">
 
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-            <div>
-              <h3 className="text-2xl font-bold">
-                Software Developer Intern
-              </h3>
+          <div className="mb-12 ml-8">
+            <div className="absolute w-5 h-5 bg-cyan-500 rounded-full -left-[11px]"></div>
 
-              <p className="text-cyan-400 text-lg">
-                Grownited Private Limited
-              </p>
-            </div>
+            <h3 className="text-2xl font-bold">
+              Software Developer Intern
+            </h3>
 
-            <div className="text-gray-400 mt-2 md:mt-0">
-              Jan 2026 – Apr 2026
-            </div>
+            <p className="text-cyan-400 mt-2">
+              Grownited Private Limited
+            </p>
+
+            <p className="text-gray-400 mt-1">
+              2025 - Present
+            </p>
+
+            <ul className="mt-4 space-y-2 text-gray-300">
+              <li>• Dashboard UI Development</li>
+              <li>• Email OTP Verification</li>
+              <li>• Backend Integration</li>
+              <li>• Database Connectivity</li>
+            </ul>
           </div>
 
-          <ul className="space-y-3 text-gray-300 mt-6">
-            <li>✅ Developed responsive web applications and dashboard UI.</li>
-            <li>✅ Implemented login, registration and Email OTP verification.</li>
-            <li>✅ Worked on backend integration and database connectivity.</li>
-            <li>✅ Improved application performance and user experience.</li>
-          </ul>
+          <div className="ml-8">
+            <div className="absolute w-5 h-5 bg-cyan-500 rounded-full -left-[11px]"></div>
+
+            <h3 className="text-2xl font-bold">
+              TrivNest Application
+            </h3>
+
+            <p className="text-cyan-400 mt-2">
+              Flutter Developer
+            </p>
+
+            <p className="text-gray-400 mt-1">
+              Current Project
+            </p>
+
+            <ul className="mt-4 space-y-2 text-gray-300">
+              <li>• PG Management Platform</li>
+              <li>• Firebase Integration</li>
+              <li>• Owner Dashboard</li>
+              <li>• Razorpay Integration</li>
+            </ul>
+          </div>
 
         </div>
 
