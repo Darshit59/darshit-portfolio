@@ -1,68 +1,95 @@
-function Education() {
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaUniversity, FaCalendarAlt } from "react-icons/fa";
+
+const education = [
+  {
+    degree: "Master of Science in Information Technology",
+    university: "Lok Jagruti Kendra University",
+    duration: "2025 - Present",
+    description:
+      "Currently pursuing M.Sc. Information Technology with a focus on Full Stack Development, Flutter, React, Python, and modern software engineering.",
+  },
+  {
+    degree: "Bachelor of Science in Information Technology",
+    university: "Lok Jagruti Kendra University",
+    duration: "2022 - 2025",
+    description:
+      "Built multiple real-world academic projects while strengthening skills in web development, databases, programming, and UI/UX.",
+  },
+];
+
+export default function Education() {
   return (
-    <section
-      id="education"
-      className="py-24 px-6 bg-slate-900"
-    >
+    <section id="education" className="py-24 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{opacity:0,y:40}}
+          whileInView={{opacity:1,y:0}}
+          viewport={{once:false}}
+          transition={{duration:0.6}}
+          className="text-center mb-16"
+        >
+          <span className="px-5 py-2 rounded-full border border-cyan-400 text-cyan-400">
+            Academic Journey
+          </span>
 
-        <h2 className="text-5xl font-bold text-center mb-14">
-          Education
-        </h2>
+          <h2 className="text-5xl font-bold mt-6 text-white">
+            My <span className="text-cyan-400">Education</span>
+          </h2>
 
-        <div className="space-y-8">
+          <p className="text-gray-400 mt-4">
+            Building a strong academic foundation with continuous learning.
+          </p>
+        </motion.div>
 
-          {/* MSc IT */}
-          <div className="bg-slate-800 border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 transition-all duration-300">
+        <div className="relative">
+          <div className="absolute left-6 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-cyan-400 via-cyan-500 to-transparent"></div>
 
-            <div className="flex flex-col md:flex-row md:justify-between">
+          <div className="space-y-12">
+            {education.map((item,index)=>(
+              <motion.div
+                key={index}
+                initial={{opacity:0,x:-80}}
+                whileInView={{opacity:1,x:0}}
+                viewport={{once:false,amount:0.35}}
+                transition={{duration:0.7,delay:index*0.2}}
+                className="relative flex gap-8"
+              >
+                <div className="relative z-10 w-14 h-14 rounded-full bg-cyan-500 flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.6)]">
+                  <FaGraduationCap className="text-white text-2xl"/>
+                </div>
 
-              <div>
-                <h3 className="text-2xl font-bold">
-                  Master of Science in Information Technology
-                </h3>
+                <motion.div
+                  whileHover={{scale:1.02,y:-5}}
+                  className="flex-1 rounded-3xl border border-cyan-500/20 bg-slate-800/60 backdrop-blur-xl p-8 shadow-xl"
+                >
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">
+                        {item.degree}
+                      </h3>
 
-                <p className="text-cyan-400 text-lg mt-2">
-                  Lok Jagruti Kendra University
-                </p>
-              </div>
+                      <div className="flex items-center gap-2 mt-3 text-cyan-400">
+                        <FaUniversity />
+                        <span>{item.university}</span>
+                      </div>
+                    </div>
 
-              <div className="text-gray-400 mt-2 md:mt-0">
-                2025 - Present
-              </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+                      <FaCalendarAlt />
+                      {item.duration}
+                    </div>
+                  </div>
 
-            </div>
-
+                  <p className="text-gray-300 leading-8 mt-6">
+                    {item.description}
+                  </p>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
-
-          {/* BSc IT */}
-          <div className="bg-slate-800 border border-cyan-500/20 rounded-3xl p-8 hover:border-cyan-400 transition-all duration-300">
-
-            <div className="flex flex-col md:flex-row md:justify-between">
-
-              <div>
-                <h3 className="text-2xl font-bold">
-                  Bachelor of Science in Information Technology
-                </h3>
-
-                <p className="text-cyan-400 text-lg mt-2">
-                  Lok Jagruti Kendra University
-                </p>
-              </div>
-
-              <div className="text-gray-400 mt-2 md:mt-0">
-                2022 - 2025
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
-
       </div>
     </section>
   );
 }
-
-export default Education;
