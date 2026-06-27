@@ -40,25 +40,28 @@ export default function Navbar() {
         initial={{ y: -80 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-2xl transition-all duration-300 ${
+        className={`fixed left-3 right-3 top-4 z-50 mx-auto max-w-7xl rounded-2xl transition-all duration-300 sm:left-4 sm:right-4 ${
           scrolled
-            ? "bg-slate-900/80 backdrop-blur-2xl border border-cyan-500/20 shadow-2xl shadow-cyan-500/10"
-            : "bg-slate-900/40 backdrop-blur-xl border border-white/10"
+            ? "border border-cyan-500/20 bg-slate-900/80 shadow-2xl shadow-cyan-500/10 backdrop-blur-2xl"
+            : "border border-white/10 bg-slate-900/40 backdrop-blur-xl"
         }`}
       >
-        <div className="flex items-center justify-between px-5 md:px-7 py-4">
-          <a href="#home" className="group">
-            <h1 className="text-3xl font-black tracking-wide text-white">
-              D<span className="text-cyan-400 group-hover:text-white transition">G</span>
+        <div className="flex min-w-0 items-center justify-between px-4 py-3 sm:px-5 sm:py-4 md:px-7">
+          <a href="#home" className="group shrink-0">
+            <h1 className="text-2xl font-black tracking-wide text-white sm:text-3xl">
+              D
+              <span className="text-cyan-400 transition group-hover:text-white">
+                G
+              </span>
             </h1>
           </a>
 
-          <div className="hidden xl:flex items-center gap-6">
+          <div className="hidden items-center gap-6 xl:flex">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative text-sm font-medium text-gray-200 hover:text-cyan-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all hover:after:w-full"
+                className="relative text-sm font-medium text-gray-200 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all hover:text-cyan-400 hover:after:w-full"
               >
                 {item.label}
               </a>
@@ -68,7 +71,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="xl:hidden text-white text-2xl hover:text-cyan-400 transition"
+            className="shrink-0 text-2xl text-white transition hover:text-cyan-400 xl:hidden"
           >
             <FaBars />
           </button>
@@ -83,7 +86,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55]"
+              className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm"
             />
 
             <motion.div
@@ -91,9 +94,9 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="fixed top-0 right-0 w-80 max-w-[85%] h-screen bg-slate-950/95 backdrop-blur-2xl z-[60] border-l border-cyan-500/20 shadow-2xl"
+              className="fixed right-0 top-0 z-[60] h-dvh w-[82vw] max-w-[320px] overflow-y-auto border-l border-cyan-500/20 bg-slate-950/95 shadow-2xl backdrop-blur-2xl"
             >
-              <div className="flex items-center justify-between px-7 py-6 border-b border-white/10">
+              <div className="flex items-center justify-between border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
                 <h2 className="text-2xl font-bold text-white">
                   D<span className="text-cyan-400">G</span>
                 </h2>
@@ -101,13 +104,13 @@ export default function Navbar() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="text-white text-3xl hover:text-cyan-400 transition"
+                  className="text-3xl text-white transition hover:text-cyan-400"
                 >
                   <FaTimes />
                 </button>
               </div>
 
-              <div className="flex flex-col px-8 gap-5 mt-8">
+              <div className="flex flex-col gap-4 px-6 pb-8 pt-7 sm:px-8">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.label}
@@ -116,7 +119,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-lg font-medium text-gray-200 hover:text-cyan-400 transition"
+                    className="break-words rounded-xl px-3 py-2 text-base font-medium text-gray-200 transition hover:bg-cyan-400/10 hover:text-cyan-400 sm:text-lg"
                   >
                     {item.label}
                   </motion.a>

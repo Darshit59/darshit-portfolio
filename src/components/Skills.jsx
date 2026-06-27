@@ -127,37 +127,41 @@ const colorClasses = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 md:py-24"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.16),transparent_35%)]" />
       <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto w-full max-w-7xl overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-12 text-center sm:mb-16"
         >
-          <span className="inline-flex items-center gap-3 rounded-full border border-cyan-400/60 bg-cyan-400/10 px-6 py-2 text-sm font-bold uppercase tracking-wider text-cyan-300">
+          <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-cyan-400/60 bg-cyan-400/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-cyan-300 sm:px-6 sm:text-sm">
             ✦ My Expertise
           </span>
 
-          <h2 className="mt-6 text-5xl font-black md:text-6xl">
+          <h2 className="mt-6 break-words text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
             Technical{" "}
             <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
               Skills
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">
-            Technologies, frameworks and tools that I use to build modern and scalable applications
+          <p className="mx-auto mt-5 max-w-2xl px-2 text-base leading-8 text-slate-400 sm:text-lg">
+            Technologies, frameworks and tools that I use to build modern and
+            scalable applications
           </p>
 
           <div className="mx-auto mt-7 h-1 w-20 rounded-full bg-cyan-400" />
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {sections.map((section, index) => {
             const colors = colorClasses[section.color];
 
@@ -168,23 +172,25 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.55, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`rounded-2xl border ${colors.border} bg-slate-900/70 p-6 shadow-2xl ${colors.shadow} backdrop-blur-xl`}
+                whileHover={{ y: -4 }}
+                className={`w-full overflow-hidden rounded-2xl border ${colors.border} bg-slate-900/70 p-5 shadow-2xl ${colors.shadow} backdrop-blur-xl sm:p-6`}
               >
-                <div className="mb-7 flex items-center gap-5">
+                <div className="mb-7 flex items-center gap-4">
                   <div
-                    className={`flex h-16 w-16 items-center justify-center rounded-xl border ${colors.border} ${colors.iconBg} text-3xl ${colors.text}`}
+                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border ${colors.border} ${colors.iconBg} text-2xl ${colors.text} sm:h-16 sm:w-16 sm:text-3xl`}
                   >
                     {section.icon}
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-bold">{section.title}</h3>
+                  <div className="min-w-0">
+                    <h3 className="break-words text-2xl font-bold leading-tight sm:text-3xl">
+                      {section.title}
+                    </h3>
                     <div className={`mt-3 h-1 w-10 rounded-full ${colors.line}`} />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
                   {section.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -195,11 +201,14 @@ export default function Skills() {
                         duration: 0.35,
                         delay: index * 0.08 + skillIndex * 0.03,
                       }}
-                      whileHover={{ scale: 1.04 }}
-                      className="flex min-h-[64px] items-center gap-4 rounded-lg border border-slate-700/70 bg-slate-800/50 px-4 py-3 transition-all hover:border-cyan-400/70 hover:bg-slate-800"
+                      whileHover={{ scale: 1.02 }}
+                      className="flex min-h-[64px] w-full min-w-0 items-center gap-3 rounded-lg border border-slate-700/70 bg-slate-800/50 px-4 py-3 transition-all hover:border-cyan-400/70 hover:bg-slate-800"
                     >
-                      <span className="text-3xl">{skill.icon}</span>
-                      <span className="text-sm font-semibold text-slate-100">
+                      <span className="shrink-0 text-2xl sm:text-3xl">
+                        {skill.icon}
+                      </span>
+
+                      <span className="min-w-0 break-words text-base font-semibold leading-snug text-slate-100 sm:text-sm">
                         {skill.name}
                       </span>
                     </motion.div>
@@ -215,15 +224,17 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-6 rounded-2xl border border-blue-500/40 bg-slate-900/80 px-8 py-7 shadow-2xl shadow-blue-500/10 backdrop-blur-xl"
+          className="mx-auto mt-12 flex w-full max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/40 bg-slate-900/80 px-5 py-6 shadow-2xl shadow-blue-500/10 backdrop-blur-xl sm:mt-14 sm:items-center sm:gap-6 sm:px-8 sm:py-7"
         >
-          <div className="text-5xl text-blue-400">
+          <div className="shrink-0 text-4xl text-blue-400 sm:text-5xl">
             <FaRocket />
           </div>
 
-          <div>
-            <h4 className="text-xl font-bold">Always learning, always improving 🚀</h4>
-            <p className="mt-2 text-slate-400">
+          <div className="min-w-0">
+            <h4 className="break-words text-lg font-bold sm:text-xl">
+              Always learning, always improving 🚀
+            </h4>
+            <p className="mt-2 break-words text-sm leading-7 text-slate-400 sm:text-base">
               Exploring new technologies to build better solutions
             </p>
           </div>
